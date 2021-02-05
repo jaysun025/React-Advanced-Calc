@@ -24,17 +24,23 @@ class Calculator extends Component {
     }
 
     setOperater = (e) => {
-        if(this.state.display) {
+        if(this.state.display && !this.state.total) {
         let newTotal = this.state.display
         this.setState({
             operator: e.target.innerText,
             readyForNewNum: true, 
             total: newTotal
         })
+      } else if(this.state.display && this.state.total) {
+        // operate display with total 
+        //store the result in total
+        // then set new operator 
+        // and change readyForNewNum to true
       }
     }
 
     calculate = () => {
+        if(this.state.total) {
         let result 
         switch(this.state.operator) {
             case '+':
@@ -61,6 +67,7 @@ class Calculator extends Component {
             total: null, 
         })
     }
+}
 
     clearAll = () => {
         this.setState({

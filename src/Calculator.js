@@ -3,6 +3,13 @@ import React, { Component } from 'react'
 class Calculator extends Component {
     // Declare state variables
 
+    state = {
+        display: '',
+        total: null,
+        operator: null,
+        readyForNewNum: false,
+    }
+
 render(){
     return (
         <div className="container">
